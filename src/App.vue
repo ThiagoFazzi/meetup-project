@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer v-model="sideNav" temporary absolute>
       <v-list>
-        <v-list-item v-for="item in menuItens" :key="item.title">
+        <v-list-item v-for="item in menuItens" :key="item.title" :to="item.path">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -15,19 +15,19 @@
         @click.stop="sideNav = !sideNav"
         class="d-sm-none d-md-none d-lg-none d-xl-none"
       />
-      <v-toolbar-title>Meetup</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link to="/" tag="span" style="cursor: pointer">Meetup</router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="d-none d-sm-flex">
-        <v-btn text v-for="item in menuItens" :key="item.title">
+        <v-btn text v-for="item in menuItens" :key="item.title" :to="item.path">
           <v-icon left>{{ item.icon}}</v-icon>
           {{ item.title}}
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
-      <v-container>
-        <router-view></router-view>
-      </v-container>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
@@ -49,7 +49,7 @@ export default {
         {
           icon: "mdi-map-marker",
           title: "Organize Meetups",
-          path: "meetups/new"
+          path: "meetup/new"
         },
         { icon: "mdi-account", title: "Profile", path: "/profile" },
         { icon: "mdi-face", title: "Sign up", path: "/signin" },
