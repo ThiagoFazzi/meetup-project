@@ -8,13 +8,13 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: colors.red.darken3,
-        secondary: colors.grey.darken1,
-        accent: colors.shades.black,
-        error: colors.red.accent3,
-        info: colors.lightBlue.lighten3,
-        success: colors.lightGreen.lighten3,
-        warning: colors.orange.lighten3
+        primary: colors.red.darken2,
+        secondary: colors.grey.lighten1,
+        accent: colors.red.accent2,
+        error: colors.red.accent4,
+        info: colors.blue.lighten1,
+        success: colors.green.lighten2,
+        warning: colors.amber.darken2
       }
     }
   },

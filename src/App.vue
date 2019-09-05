@@ -33,8 +33,6 @@
 </template>
 
 <script>
-//import { mdiAccountSupervisor } from "@mdi/js";
-
 export default {
   name: "App",
   data() {
