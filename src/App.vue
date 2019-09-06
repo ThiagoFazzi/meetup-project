@@ -22,7 +22,7 @@
       <v-toolbar-items class="d-none d-sm-flex">
         <v-btn text v-for="item in menuItens" :key="item.title" :to="item.path">
           <v-icon left>{{ item.icon}}</v-icon>
-          {{ item.title}}
+          {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
