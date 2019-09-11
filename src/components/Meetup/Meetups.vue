@@ -1,23 +1,30 @@
 <template>
   <v-container>
-    <v-col v-for="meetup in meetups" :key="meetup.id">
-      <v-card class="info" dark>
-        <v-list-item three-line>
-          <v-list-item-avatar style="width: 40%; height: 130px; marginLeft: 4px" tile>
-            <v-img :src="meetup.imageUrl" />
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title class="headline mb-0">{{ meetup.title }}</v-list-item-title>
-            <v-list-item-subtitle>{{ meetup.date }}</v-list-item-subtitle>
-          </v-list-item-content>
-          <v-card-actions>
-            <v-btn text :to="'/meetups/' + meetup.id">
-              <v-icon>mdi-arrow-right</v-icon>View Meetup
-            </v-btn>
-          </v-card-actions>
-        </v-list-item>
-      </v-card>
-    </v-col>
+    <v-layout row>
+      <v-flex xs10 offset-xs1>
+        <v-layout row v-for="meetup in meetups" :key="meetup.id">
+          <v-flex xs12 md12 class="mb-2">
+            <v-card class="info mx-auto" dark height="150px">
+              <v-layout row wrap>
+                <v-flex xs6 md6>
+                  <v-img :src="meetup.imageUrl" width="100%" height="150px" cover />
+                </v-flex>
+
+                <v-flex xs6 md6>
+                  <v-card-title>{{ meetup.title}}</v-card-title>
+                  <v-card-text>{{ meetup.date }}</v-card-text>
+                  <v-card-actions>
+                    <v-btn text :to="'/meetups/' + meetup.id">
+                      <v-icon>mdi-arrow-right</v-icon>View Meetup
+                    </v-btn>
+                  </v-card-actions>
+                </v-flex>
+              </v-layout>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
