@@ -58,20 +58,23 @@
               ></v-textarea>
             </v-flex>
           </v-layout>
-
+          <h4>Choose a Date and Time</h4>
           <v-layout row>
             <v-flex xs12 sm12 class="mb-2">
               <v-date-picker v-model="date" full-width></v-date-picker>
+              {{ date }}
             </v-flex>
 
             <v-flex xs12 sm12 class="mb-2">
               <v-time-picker v-model="time" full-width format="24hr"></v-time-picker>
+              {{ time }}
             </v-flex>
           </v-layout>
 
           <v-layout row>
             <v-flex xs12>
               <v-btn :disabled="!formIsValid" type="submit">Create Meetup</v-btn>
+              {{ submittableDateTime }}
             </v-flex>
           </v-layout>
         </form>
@@ -84,12 +87,12 @@
 export default {
   data() {
     return {
-      title: "",
-      location: "",
-      imageUrl: "",
-      description: "",
-      date: new Date().toISOString().substr(0, 10),
-      time: null
+      title: '',
+      location: '',
+      imageUrl: '',
+      description: '',
+      date: new Date(),
+      time: new Date()
     }
   },
   computed: {
@@ -100,6 +103,20 @@ export default {
         this.imageUrl !== "" &&
         this.description !== ""
       )
+    },
+    submittableDateTime() {
+      const date = new Date(this.date)
+      if (typeof this.time === 'string') {
+        const hours = this.time.match(/^(\d+)/)[1]
+        const minutes = this.time.match(/:(\d+)/)[1]
+        date.setHours(hours)
+        date.setMinutes(minutes)
+      } else {
+        date.setHours(this.time.getHours())
+        date.setMinutes(this.time.getMinutes())
+      }
+      console.log(date)
+      return date
     }
   },
   methods: {
