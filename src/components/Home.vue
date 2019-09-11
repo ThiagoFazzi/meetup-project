@@ -38,15 +38,15 @@
 export default {
   computed: {
     meetups() {
-      return this.$store.getters.featuredMeetups;
+      return this.$store.getters.featuredMeetups
     }
   },
   methods: {
     onLoadMeetup(id) {
-      this.$router.push(`/meetup/${id}`);
+      this.$router.push(`/meetup/${id}`)
     }
   }
-};
+}
 </script>
 
 <style scoped>

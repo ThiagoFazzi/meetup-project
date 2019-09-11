@@ -25,5 +25,5 @@ export default {
       return this.$store.getters.loadedMeetup(this.id);
     }
   }
-};
+}
 </script>

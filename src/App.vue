@@ -53,7 +53,7 @@ export default {
         { icon: "mdi-face", title: "Sign up", path: "/signin" },
         { icon: "mdi-lock-open", title: "Sign in", path: "/signup" }
       ]
-    };
+    }
   }
-};
+}
 </script>

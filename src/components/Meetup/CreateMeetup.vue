@@ -90,7 +90,7 @@ export default {
       description: "",
       date: new Date().toISOString().substr(0, 10),
       time: null
-    };
+    }
   },
   computed: {
     formIsValid() {
@@ -99,13 +99,13 @@ export default {
         this.location !== "" &&
         this.imageUrl !== "" &&
         this.description !== ""
-      );
+      )
     }
   },
   methods: {
     onCreateMeetup() {
       if (!this.formIsValid) {
-        return;
+        return
       }
       const meetupData = {
         title: this.title,
@@ -113,10 +113,10 @@ export default {
         imageUrl: this.imageUrl,
         description: this.description,
         date: new Date()
-      };
-      this.$store.dispatch("createMeetup", meetupData);
-      this.$router.push("/meetups");
+      }
+      this.$store.dispatch("createMeetup", meetupData)
+      this.$router.push("/meetups")
     }
   }
-};
+}
 </script>
